@@ -42,7 +42,10 @@
         .text-center { text-align: center; }
 
         .btn-primary, .btn-secondary {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
@@ -71,8 +74,6 @@
         .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
         .hero {
-            /* SOLUCIÓN: min-height permite que el área crezca si es necesario, 
-               y padding-top: 130px crea un área intocable para el menú */
             min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center; position: relative;
@@ -189,6 +190,9 @@
         footer { background: #050505; padding: 60px 0 30px; border-top: 1px solid #222; }
         footer h2 { font-size: 2rem; margin-bottom: 15px; }
         footer p { color: var(--text-muted); margin-bottom: 30px; }
+        
+        .footer-cta { margin-bottom: 40px; } /* Nuevo margen para el botón del CV en el footer */
+        
         .social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
         .social-links a {
             color: var(--text-main); text-decoration: none; font-size: 1.1rem;
@@ -245,7 +249,10 @@
             <h1>Forjando <span>Talento</span>,<br>Construyendo <span>Líderes</span>.</h1>
             <p>Egresado de la Licenciatura en Cultura Física y Deportes | Profesional de la educación enfocado en el desarrollo integral de atletas desde nivel preescolar hasta universitario.</p>
             <div class="hero-buttons">
-                <a href="#trayectoria" class="btn-secondary">Conocer mi Metodología</a>
+                <!-- AQUÍ AGREGAMOS EL BOTÓN DEL CV -->
+                <a href="CoachAldoVillavicencioCV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                    <i class="fas fa-file-pdf"></i> Ver mi CV
+                </a>
                 <a href="#contacto" class="btn-primary">Contactar a Aldo</a>
             </div>
         </div>
@@ -358,6 +365,14 @@
         <div class="container fade-in text-center">
             <h2>¿Listo para llevar tu programa deportivo al siguiente nivel?</h2>
             <p>Radicando en Jardines del Bosque, Guadalajara | Dispuesto a reubicación</p>
+            
+            <!-- SEGUNDO BOTÓN DEL CV EN EL FOOTER -->
+            <div class="footer-cta">
+                <a href="CoachAldoVillavicencioCV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                    <i class="fas fa-file-pdf"></i> Descargar Currículum
+                </a>
+            </div>
+
             <div class="social-links">
                 <a href="mailto:lcfd.aldovillavicencio@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> lcfd.aldovillavicencio@gmail.com</a>
                 <a href="https://wa.me/523320288854" target="_blank"><i class="fab fa-whatsapp"></i> 33 2028 8854 (Solo WhatsApp)</a>
