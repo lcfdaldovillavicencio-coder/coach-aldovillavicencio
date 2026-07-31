@@ -71,11 +71,14 @@
         .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
         .hero {
-            height: 100vh;
+            /* SOLUCIÓN: min-height permite que el área crezca si es necesario, 
+               y padding-top: 130px crea un área intocable para el menú */
+            min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center; position: relative;
             background: url('https://images.unsplash.com/photo-1518063319789-7217e6706b04?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
-            padding-top: 70px; /* SOLUCIÓN 1: Empuja el contenido para que el menú no tape la foto */
+            padding-top: 130px; 
+            padding-bottom: 50px;
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -117,13 +120,12 @@
         .gallery-item img {
             width: 100%; height: 100%; 
             object-fit: cover; 
-            object-position: top center; /* SOLUCIÓN 2: Prioriza la parte de arriba de la foto (cabezas) */
+            object-position: top center;
             transition: transform 0.5s ease; filter: grayscale(20%);
-            cursor: pointer; /* Indica que se puede dar clic */
+            cursor: pointer;
         }
         .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
 
-        /* SOLUCIÓN 3: Estilos para el visor de fotos grandes (Lightbox) */
         .lightbox {
             display: none;
             position: fixed;
@@ -380,7 +382,7 @@
             }
         }
 
-        // --- Funciones Nuevas para el Lightbox ---
+        // Funciones para el Lightbox
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').classList.add('active');
@@ -390,14 +392,12 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 
-        // Cierra la foto si haces clic fuera de ella
         document.getElementById('lightbox').addEventListener('click', function(e) {
             if (e.target !== document.getElementById('lightbox-img')) {
                 closeLightbox();
             }
         });
 
-        // Conectar cada foto de la galería con la función de abrir
         document.addEventListener("DOMContentLoaded", function() {
             const galleryImages = document.querySelectorAll('.gallery-item img');
             galleryImages.forEach(img => {
@@ -406,7 +406,6 @@
                 });
             });
         });
-        // -----------------------------------------
 
         // Animación de aparición (Fade-in)
         document.addEventListener("DOMContentLoaded", function() {
